@@ -67,7 +67,12 @@ async function all(code) {
     //     )
     //     .catch(err => console.error(err));
     loaderEl.classList.add("loader")
-    const fetc = await fetch(code)
+    const fetc = await fetch(code , {
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+})
     const data = await fetc.json()
     loaderEl.classList.remove("loader")
     console.log(data)
